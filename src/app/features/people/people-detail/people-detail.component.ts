@@ -18,7 +18,7 @@ export class PeopleDetailComponent implements OnInit, OnDestroy {
   public _homeWorldLink!: Observable<any>;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
-    this.route.params.subscribe((params) => this.id = +params['id']);
+    this.sub = this.route.params.subscribe((params) => this.id = +params['id']);
   }
 
   ngOnInit(): void {
@@ -33,6 +33,6 @@ export class PeopleDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.sub?.unsubscribe();
   }
 }
