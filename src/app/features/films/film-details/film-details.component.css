@@ -1,0 +1,8 @@
+.back {
+  float: right;
+  margin-right: var(--margin);
+}
+
+.btn-back {
+  padding: 5px 30px;
+}
