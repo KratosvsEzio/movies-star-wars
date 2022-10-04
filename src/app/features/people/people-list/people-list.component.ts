@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
 import { DataService } from '@app/services/data.service';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-people-list',
@@ -11,15 +11,13 @@ import { DataService } from '@app/services/data.service';
 export class PeopleListComponent implements OnInit {
   private url!: string;
 
-  public _peopleList: Observable<any> | null = null;
+  public _peopleList!: Observable<any>;
 
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this._peopleList = this.dataService._list
-      .pipe(
-        map((data: any) => data?.results)
-      );
+      .pipe(map((data: any) => data?.results));
   }
 
   navigate(value: any) {
